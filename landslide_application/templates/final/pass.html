@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Landlslide Prediction{% endblock %}
+
+{% block content %}
+
+<section class="banner v1 bg-cover-center" data-background="https://www.thethirdpole.net/content/uploads/2014/08/Sindhupalchowk-landslide-Nepal.jpg" style="height: 92%;">
+    <div class="container">
+      <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div class="row align-items-center" style="margin-top: 10%;">
+            <div class="col-lg-12">
+                <h1 style="font-size: 36px; margin-bottom: 20px; color: rgb(243, 17, 17) ;">There is possibility of a landslide!</h1>
+                <p style="font-size: 18px; line-height: 1.6; margin-bottom: 30px; color: azure;">The area is unsafe, need to safegaurd it...</p>
+                <img src="https://media.giphy.com/media/jTfmBts5vvjK651km0/giphy.gif" alt="Happy GIF" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            </div>
+        </div>
+    </div>
+    </div>
+  </section>
+  <script>
+    // Create an audio element
+    var audio = new Audio("{{ url_for('static', filename='sound/posibility.mp3') }}");
+
+    // Function to play the audio
+    function playAudio() {
+        audio.play();
+    }
+    // Attach the playAudio function to the document's click event
+    document.addEventListener('click', playAudio);
+</script>
+{% endblock %}

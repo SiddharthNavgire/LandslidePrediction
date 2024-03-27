@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from techsometimes.com/products/html/farmus-html/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Oct 2023 14:52:24 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Farmus - Agriculture and Organic Farm HTML5 Template">
+    <meta name="description" content="Farmus - Agriculture and Organic Farm HTML5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- All Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='img/logo/favicon.png') }}">
+
+    <title>Landlslide Prediction</title>
+    <!-- BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.min.css') }}">
+
+    <!-- Custom styles for template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!--Font Google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <div class="preloder"></div>
+
+        
+    <!-- Navigation Bar -->
+      <nav class="navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index" style="font-family: 'Caprasimo', serif;">Landslide Prediction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" data-bs-theme="light">{{ message }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/description">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <form class="d-flex mt-3" role="search" action="{{ url_for('logout')}}" method="post">
+                            <button class="btn btn-outline-success" type="submit">Logout</button>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+  
+
+    <!-- Banner Start -->
+    
+        {% block content %}
+        {% endblock %}
+    
+    <!-- Banner End -->
+
+
+    <footer id="footer">
+        <a href="https://www.facebook.com/"><i class="footer-icon fa-brands fa-facebook"></i></a> 
+        <a href="https://www.instagram.com/"><i class="footer-icon fa-brands fa-instagram"></i></a> 
+        <a href="https://twitter.com/"><i class="footer-icon fa-brands fa-twitter"></i></a> 
+        <a href="/contact"><i class="footer-icon fa-solid fa-envelope"></i></a>
+    </footer>
+
+
+    
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='js/jquery-3.7.0.min.js') }}"></script>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+ 
+<!-- Plugins -->
+<script src="{{ url_for('static', filename='js/plugins.min.js') }}"></script>
+
+<!-- Index -->
+<script src="{{ url_for('static', filename='js/index.min.js') }}"></script>
+
+</body>
+
+</html>

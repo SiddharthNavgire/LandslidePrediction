@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block title %}Landlslide Prediction{% endblock %}
+
+{% block content %}
+
+<section class="bg-cover-center" data-background="" style="height: 160%;">
+    <div class="container">
+      <div class="row align-items-center" style="margin-top: 5%;">
+            <div class="col-lg-12">
+                    <form action="/land_slide_detection/predict" method="post" class="prediction-form">
+                        <div class="container">
+                            <div class="row lable_class" style="margin-left: -295px;margin-right: -295px;">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="aspect">Slope Exposition(&deg;)</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="aspect" id="aspect" value="0" placeholder="Aspect"  class="form-control" autocomplete="off" onfocus="clearDefault(this)">
+                                    </div>                                   
+                                    
+                                    <div class="form-group">
+                                        <label for="strdist">Distance to streams(m)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="strdist" id="strdist" placeholder="Strdist" required="required" class="form-control" autocomplete="off">
+                                    </div>
+                                
+
+                                    <div class="form-group">
+                                        <label for="basarea">Catchment size(m<sup>2</sup>)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="basarea" id="basarea" placeholder="Basarea" required="required" class="form-control" autocomplete="off">
+                                    </div>
+                                
+                                    
+                                    <div class="form-group">
+                                        <label for="curvature">Slope curvature <br> (+ convex, - concave)</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="curvature" id="curvature" placeholder="Curvature" value="0" class="form-control" autocomplete="off">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label for="curve_cont">Contour slope curvature</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="curve_cont" id="curve_cont" placeholder="Curve Cont" value="0" class="form-control" autocomplete="off">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label for="curve_prof">Profile slope curvature</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="curve_prof" id="curve_prof" placeholder="Curve Prof" value="0" class="form-control" autocomplete="off">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label for="curves">Curves(m)</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="curves" id="curves" placeholder="Curves" value="0" class="form-control" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="drop">Absolute change in height(m)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="drop" id="drop" placeholder="Drop" required="required" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                    
+                                <div class="col-md-4">
+                                                                                           
+                                    <div class="form-group">
+                                        <label for="flowdir">Flow direction(&deg;)</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="flowdir" id="flowdir" placeholder="Flowdir" value="0" class="form-control" autocomplete="off">
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label for="fos">Factor of safety</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="fos" id="fos" placeholder="Fos" required="required" class="form-control" autocomplete="off">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label>Rock type (Lithiology)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <div>
+                                            <input type="radio" name="lith" value="1" id="lith_1">
+                                            <label for="lith_1" class="radio-label">1.Limestone</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="lith" value="3" id="lith_3">
+                                            <label for="lith_3" class="radio-label">3.Marl</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="lith" value="5" id="lith_5">
+                                            <label for="lith_5" class="radio-label">5.Evaporites</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="lith" value="13" id="lith_13">
+                                            <label for="lith_13" class="radio-label">13.Rock Fall</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="lith" value="15" id="lith_15">
+                                            <label for="lith_15" class="radio-label">15.Moraine on marls</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="lith" value="17" id="lith_17">
+                                            <label for="lith_17" class="radio-label">17.Moraine(>3m thickness)</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="lith" value="18" id="lith_18">
+                                            <label for="lith_18" class="radio-label">18.Moraine on evaporites</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="lith" value="0" id="lith_0">
+                                            <label for="lith_0" class="radio-label">0.Other</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="elev">Elevation(m.a.s.l)</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="elev" id="elev" placeholder="Elev" value="0" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                    
+                                <div class="col-md-4">
+
+                                    <div class="form-group">
+                                        <label for="cohesion">Cohesion(kN/m<sup>2</sup>)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="cohesion" id="cohesion" placeholder="Cohesion" required="required" class="form-control" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="scarpdist"> Distance to scarps(m)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="scarpdist" id="scarpdist" placeholder="Scarpdist" required="required" class="form-control" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Scarps (Yes/No)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <div>
+                                            <input type="radio" name="scarps" value="1" id="scarps_yes">
+                                            <label for="scarps_yes" class="radio-label">Yes</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="scarps" value="0" id="scarps_no">
+                                            <label for="scarps_no" class="radio-label">No</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label for="frictang">Friction Angle(&deg;)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="frictang" id="frictang" placeholder="Frictang" required="required" class="form-control"  autocomplete="off">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label for="slope">Slope gradient(&deg;) </label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="slope" id="slope" placeholder="Slope" required="required" class="form-control" autocomplete="off">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label for="slopeleg">Length of slope(m)</label>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="slopeleg" id="slopeleg" placeholder="Slopeleg" required="required" class="form-control" autocomplete="off">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label>Vegetation (Yes/No)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <div>
+                                            <input type="radio" name="woods" value="1" id="woods_yes">
+                                            <label for="woods_yes" class="radio-label">Yes</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="woods" value="0" id="woods_no">
+                                            <label for="woods_no" class="radio-label">No</label>
+                                        </div>
+                                    </div>
+                                    
+                                
+                                    <div class="form-group">
+                                        <label for="specwt">Specific weight(kN/m<sup>3</sup>)</label><sup><i class="fa-solid fa-star fa-flip-horizontal fa-2xs" style="color: #eb0000;"></i></sup>
+                                        <a href="/description"><i class="fa-solid fa-circle-info" style="color: #9ADE7B;"></i></a>
+                                        <input type="text" name="specwt" id="specwt" placeholder="Specwt" required="required" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <button type="submit" class="btn btn-primary btn-outline-success" style="margin-left: 18%;">Click for Landslide prediction</button>
+                        </div>
+                    </form>
+                    
+                    
+                    <br>
+                    <br>
+                    
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <script>
+    function clearDefault(input) {
+        if (input.value === '0') {
+            input.value = '';
+        }
+    }
+</script>
+
+
+{% endblock %}

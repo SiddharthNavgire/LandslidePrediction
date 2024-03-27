@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Landlslide Prediction{% endblock %}
+
+{% block content %}
+<section class="banner v1 bg-cover-center" data-background="https://www.thethirdpole.net/content/uploads/2014/08/Sindhupalchowk-landslide-Nepal.jpg" style="height: 92%;">
+    <div class="container mt-5 overflow-auto">
+        <table class="table table-bordered table-striped rounded custom-table">
+            <thead class="bg-success text-white">
+                <tr>
+                    <th class="py-2">Username</th>
+                    <th class="py-2">Aspect</th>
+                    <th class="py-2">Strdist</th>
+                    <th class="py-2">Basearea</th>
+                    <th class="py-2">Curveture</th>
+                    <th class="py-2">Curve_cont</th>
+                    <th class="py-2">Curve_prof</th>
+                    <th class="py-2">Curves</th>
+                    <th class="py-2">Elevation</th>
+                    <th class="py-2">Drop</th>
+                    <th class="py-2">Flow Diraction</th>
+                    <th class="py-2">FOS</th>
+                    <th class="py-2">Lithiology</th>
+                    <th class="py-2">Cohesion</th>
+                    <th class="py-2">Scarps</th>
+                    <th class="py-2">Scarpdist</th>
+                    <th class="py-2">Frictang</th>
+                    <th class="py-2">Slope</th>
+                    <th class="py-2">Slopeleg</th>
+                    <th class="py-2">Woods</th>
+                    <th class="py-2">Specwt</th>
+                    <th class="py-2">Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in history_list %}
+                    <tr>
+                        {% for element in item %}
+                            <td class="py-2">{{ element }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    
+</section>
+{% endblock %}

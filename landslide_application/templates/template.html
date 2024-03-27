@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Landlslide Prediction{% endblock %}
+
+{% block content %}
+
+<section class="banner v1 bg-cover-center" data-background="https://www.thethirdpole.net/content/uploads/2014/08/Sindhupalchowk-landslide-Nepal.jpg" style="background-image: url(&quot;/static/img/banner/v1/banner-2.jpg&quot;);height: 92%;">
+    <div class="container">
+      <div class="row align-items-center" style="margin-top: 10%;">
+            <div class="col-lg-12">
+                <p style="font-size: 24px; color: red;">{{ prediction_text }}</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+{% endblock %}

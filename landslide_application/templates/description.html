@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}Landlslide Prediction{% endblock %}
+
+{% block content %}
+
+<div class="container-featur">
+  <div class="row row-feature">
+
+      <div class="feature-box col-md-3 col-sm-6">
+          <h3>Slope Exposition (Aspect &deg;)</h3>
+          <p style="text-align: justify;">Aspect (slope orientation) affects the exposure to sunlight, wind and precipitation thereby indirectly affecting other factors that contribute to landslides such as soil moisture, vegetation cover and soil thickness.</p>
+          
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Distance to streams (m)</h3>
+        <p style="text-align: justify;">The distance to streams is a measurement that indicates how far a specific location is from the nearest stream or river. The proximity to streams can impact the stability of the surrounding terrain. Various factors associated with streams, such as water flow, erosion, and soil saturation, can contribute to an increased risk of landslides.</p>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Catchment (basin area m<sup>2</sup>)</h3>
+        <p style="text-align: justify;">A catchment or basin refers to an area of land where water from rainfall or snowmelt drains downhill into a common outlet, such as a river, lake, or ocean. The features of a catchment or basin can influence landslide occurrence in several ways.</p>
+        <a href="https://ars.els-cdn.com/content/image/1-s2.0-S0048969722010622-ga1.jpg"><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0048969722010622-ga1.jpg" alt="Vegetation Image"></a>
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Slope curvature (+,-)</h3>
+        <p style="text-align: justify;">In the context of landslides, slope curvature refers to the change in slope direction over a specific distance. Positive slope curvature indicates a convex shape, where the terrain is curving outward, while negative slope curvature indicates a concave shape, where the terrain is curving inward.</p>
+        <a href="https://www.oxfordlearnersdictionaries.com/media/english/fullsize/c/con/conve/convex_concave.png"><img src="https://www.oxfordlearnersdictionaries.com/media/english/fullsize/c/con/conve/convex_concave.png" alt="Vegetation Image"></a>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Contour-parallel slope curvature</h3>
+        <p style="text-align: justify;">Contour-parallel slope curvature is a topographic feature that plays a significant role in understanding and predicting landslides. This feature refers to the curvature of the terrain along contour lines on a slope. It helps identify concave and convex shapes in the landscape.</p>
+        <a href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/GUID-62749E70-2EAA-409B-A070-79C3D72BD620-web.png"><img src="https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/GUID-62749E70-2EAA-409B-A070-79C3D72BD620-web.png" alt="Vegetation Image"></a>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Profile-parallel slope curvature</h3>
+        <p style="text-align: justify;">
+          Profile-parallel slope curvature is a terrain feature that plays a role in landslide susceptibility. It refers to the curvature of the land surface along the slope, specifically parallel to the slope direction. This feature is significant in landslide studies because it provides insights into the shape and morphology of the terrain.</p>
+          <a href="https://www.onestopgis.com/GIS-Theory-and-Techniques/Terrain-Mapping-and-Analysis/Terrain-Analysis-Surface-Curvature/posts/Curvature-Type/Profile-13.png"><img src="https://www.onestopgis.com/GIS-Theory-and-Techniques/Terrain-Mapping-and-Analysis/Terrain-Analysis-Surface-Curvature/posts/Curvature-Type/Profile-13.png" alt="Vegetation Image"></a>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Change in height derived from slope(m)</h3>
+        <p style="text-align: justify;">Areas with significant changes in elevation along the slope may be more susceptible to landslides.      Especially when combined with other relevant features like lithology
+        Dependent on slope
+          </p>
+          <a href="{{ url_for('static', filename='img/logo/curve.png') }}"><img src="{{ url_for('static', filename='img/logo/curve.png') }}" alt="Vegetation Image"></a>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Absolute change in height above valley floor or DROP(m)</h3>
+        <p style="text-align: justify;">Absolute change in height above valley floor.
+          "Drop" measures the absolute change in height from a specific location to the elevation of the valley floor. It indicates how much the terrain drops vertically from a given point to the valley floor.
+          Areas with larger drops might be more prone to landslides
+          </p>
+          <a href="{{ url_for('static', filename='img/logo/drop.png') }}"><img src="{{ url_for('static', filename='img/logo/drop.png') }}" alt="Vegetation Image"></a>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Distance to rock(m)</h3>
+        <p style="text-align: justify;">"Rockdist" measures the distance from a target location to the nearest rock feature. It provides information about how far the point is from rock formations in the terrain. Smaller values of "rockdist" indicate that the point is closer to the nearest rock feature.
+        Larger values suggest that the point is farther away from rock formations.
+          </p>
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Flow Direction(&deg;)</h3>
+        <p style="text-align: justify;">This is commonly used in hydrological modelling and Geographic Information System (GIS) applications to represent the direction of water flow on a terrain surface. <br>
+          Here's how these values are typically interpreted:
+          <a href="https://www.researchgate.net/publication/351070221/figure/fig3/AS:1023437552234496@1621017935095/Flow-direction-in-the-selected-pour-point-model.png"><img src="https://www.researchgate.net/publication/351070221/figure/fig3/AS:1023437552234496@1621017935095/Flow-direction-in-the-selected-pour-point-model.png" alt="Vegetation Image"></a>
+          
+          </p>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>The Factor of Safety (FoS)</h3>
+        <p style="text-align: justify;">The Factor of Safety (FoS) is defined as the ratio of the forces resisting slope failure to the forces driving slope failure. It provides a safety margin and is used to assess whether a slope is stable or if there is a risk of failure. <br> FoS > 1 : Indicates that the slope is considered stable because the resisting forces are greater than the driving forces. A higher factor of safety implies a larger safety margin. <br>
+          Fos < 1:Indicates that the slope is potentially unstable, and failure could occur.
+          </p>
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Rock Type(Lithiology)</h3>
+        <p style="text-align: justify;">The study of the general physical characteristics of rocks. Seven group of lithologies are created as in the form of binary values: <br>     
+        1. Limestone <br>
+        2.  Marl <br>
+        3. Evaporites <br>
+        4. Rockfall Debris <br>
+        5. Moraine on marls (thin covers) <br>
+        6. Moraine > 3m thickness <br>
+        7. Moraine on Evaporites (thin covers) <br>
+        </p>
+        <a href="{{ url_for('static', filename='img/logo/lith.jpg') }}"><img src="{{ url_for('static', filename='img/logo/lith.jpg') }}" alt="Vegetation Image"></a>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Elevation(m.a.s.l.)</h3>
+        <p style="text-align: justify;">Refers to the height of a point on the Earth's surface above a reference of sea level.
+        unit : meters above sea level (m.a.s.l.)</p>
+        <a href="https://www.researchgate.net/publication/338353454/figure/fig2/AS:843083730128896@1578018233175/Elevation-model-of-the-landslide-site-and-layout-of-the-field-investigation.ppm"><img src="https://www.researchgate.net/publication/338353454/figure/fig2/AS:843083730128896@1578018233175/Elevation-model-of-the-landslide-site-and-layout-of-the-field-investigation.ppm" alt="Vegetation Image"></a>
+        
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Cohesion (kN/m<sup>2</sup>)</h3>
+        <p style="text-align: justify;"> Cohesion refers to the internal strength or bonding forces that hold the particles or blocks of soil or rock together.
+         <br> formula = C=Shear Force/Unit Area</p>
+         
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Failure scarp and it's distance(m)</h3>
+        <p style="text-align: justify;">
+          "scarp" refers to a steep slope or cliff formed by the vertical displacement of the Earth's surface along a fault or rupture zone. <br>	0/1 : is the scarp present or not
+          <br> Scarp distance represents the horizontal distance between the headscarp (upper edge) and the toescarp (bottom or toe) of a landslide, and it is measured in linear units.
+        <br> lower the value of scarp distance, lower the chances of landslide.
+        <br>  higher the value of scarp distance, higher the chances of landslide.</p>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/FaultLineScarp.JPG/800px-FaultLineScarp.JPG"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/FaultLineScarp.JPG/800px-FaultLineScarp.JPG" alt="Vegetation Image"></a> 
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Friction Angle(&deg;)</h3>
+        <p style="text-align: justify;">The friction angle, often denoted as "ϕ" (phi), is an angle measured between the horizontal plane and the inclined plane along which soil or rock mass begins to slide or fail.</p>
+        <a href="https://www.nickzom.org/blog/wp-content/uploads/2019/09/friction-angle.jpeg"><img src="https://www.nickzom.org/blog/wp-content/uploads/2019/09/friction-angle.jpeg" alt="Vegetation Image"></a> 
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Slope gradient(&deg;) and Slope length(m)</h3>
+        <p style="text-align: justify;">The slope gradient is a measure of the steepness of the land surface and is defined as the ratio of the vertical change in elevation to the horizontal distance. Steep slopes with a high gradient are more prone to landslides. The gravitational force acting on the soil and rock materials increases with the slope steepness. High slope gradients can lead to reduced stability, making the slope susceptible to various types of landslides, such as rockfalls, debris flows, or shallow slides.</p>
+        <a href="https://support.igpsport.com/hc/article_attachments/900002877803"><img src="https://support.igpsport.com/hc/article_attachments/900002877803" alt="Vegetation Image"></a> 
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Vegetation</h3>
+        <p style="text-align: justify;">Vegetation acts as a natural shield, intercepting rainfall and mitigating its direct impact on the soil surface. This protective land cover significantly reduces the risk of soil saturation and the potential triggers for landslides.</p>
+        <img src="https://ecointelligent.files.wordpress.com/2017/01/41440-vnn_hcmh.jpg" alt="Vegetation Image">
+      </div>
+
+      <div class="feature-box col-md-3 col-sm-6">
+        <h3>Specific Weight(kN/m<sup>3</sup>)</h3>
+        <p style="text-align: justify;">specific weight is the force exerted by gravity on a unit volume of a substance.
+          formula = weight(force)/volume</p>      
+      </div>
+
+      <!-- Repeat this block for each feature box -->
+
+  </div>
+</div>
+
+
+
+{% endblock %}

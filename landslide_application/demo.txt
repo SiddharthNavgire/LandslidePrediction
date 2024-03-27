@@ -1,0 +1,45 @@
+db = MySQLdb.connect("localhost", "root", "", "Login_Info")
+    cursor = db.cursor()
+
+    user_info = session.get('logu', None)
+    sql = "INSERT INTO history(username, aspect,strdist,basarea,curvature,curve_cont,curve_prof,curves,elev,drop_f,rockdist,flowdir,fos,lith,cohesion,scarps,scarpdist,frictang,slope,slopeleg,woods,specwt, output) VALUES (%s, %s , %s, %s , %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    val = (user_info,aspect,strdist,basarea,curvature,curve_cont,curve_prof,curves,elev,drop,rockdist,flowdir,fos,lith,cohesion,scarps,scarpdist,frictang,slope,slopeleg,woods,specwt,output_landslide[0])
+
+    cursor.execute(sql, val)
+    db.commit()
+    db.close()
+
+https://www.ux1.eiu.edu/~cfjps/1300/flows.gif
+
+
+https://unlimiteddrilling.com/wp-content/uploads/2019/09/retaining-wall.jpg
+https://oceangeosynthetics.com/wp-content/uploads/2022/05/landslide-protection.jpg
+https://qph.cf2.quoracdn.net/main-qimg-8d9e64f2bf8cbaabd730e51d805a638b-lq
+
+
+
+<th style="padding: 10px; border-radius: 10px 10px 0 0;">Username</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">Aspect</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">Strdist</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">Basearea</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">curveture</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">curve_cont</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">curve_prof</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">curves</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">drop</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">rockdist</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">flowdir</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">fos</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">lith</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">elev</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">cohesion</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">scarp</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">scarpdist</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">frictang</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">slope</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">slopeleg</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">woods</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">specwt</th>
+                    <th style="padding: 10px; border-radius: 10px 10px 0 0;">output</th>
+
+65	298.327	500.3998	91600	5	-0.7442627	0.6939766	-0.05028612	0.2303784	27.5	0	16	0.8876573	5	1048.976	10	0	80	0	23	19.31927	1822.591	1	19
